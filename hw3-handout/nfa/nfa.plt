@@ -12,7 +12,7 @@ test(nfa2, [nondet]) :-  reachable(0, 2, [b]).
 test(nfa3, [nondet]) :-  reachable(0, 1, [a, b, a]).
 test(nfa4, [fail]) :- reachable(0, 1, [a, b, a, b]).
 test(nfa5, [nondet]) :- reachable(0, 2, [a, b, a]).
-
+%
 test(nfa6, [nondet]) :- reachable(10, 13, [a,b]).
 test(nfa7, [nondet]) :-  reachable(10, 13, [a,c]).
 test(nfa8, [nondet]) :-  reachable(10, 11, [a]).
