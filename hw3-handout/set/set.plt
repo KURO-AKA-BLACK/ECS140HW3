@@ -37,6 +37,9 @@ test(isUnion9, [true(X == [a,b,c,[b,c]]), nondet]) :-
 test(isUnion10, [true(X == [a,b,c,[b,[d]]]), nondet]) :-
     isUnion([a,b,c], [a,[b,[d]]], X_Unsorted),
     msort(X_Unsorted, X).
+test(isUnion11, [true(X == [a,b,c]), nondet]) :-
+    isUnion([a,b,c], [], X_Unsorted),
+    msort(X_Unsorted, X).
 
 test(isIntersection1, [true(X == []), nondet]) :-
     isIntersection([], [], X_Unsorted),
@@ -67,6 +70,9 @@ test(isIntersection9, [true(X == [a]), nondet]) :-
     msort(X_Unsorted, X).
 test(isIntersection10, [true(X == [a,c]), nondet]) :-
     isIntersection([a,b,c,[d]], [a,[b,[d]],c], X_Unsorted),
+    msort(X_Unsorted, X).
+test(isIntersection11, [true(X == []), nondet]) :-
+    isIntersection([a,b], [], X_Unsorted),
     msort(X_Unsorted, X).
 
 test(isEqual1, [true, nondet]) :-
