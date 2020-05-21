@@ -2,22 +2,28 @@ isUnion([],[],[]).
 isUnion(Set,[],Set).
 isUnion([],Set,Set).
 
-isUnion([H1|T1],Set2,Union) :-
+isUnion(Set1,Set2,Union) :-
+    [H1|T1] = Set1,
     member(H1,Set2),
     isUnion(T1,Set2,Union).
 
-isUnion([H1|T1],Set2,[H1|T3]) :-
+isUnion(Set1,Set2,Union) :-
+    [H1|T1] = Set1,
+    [H1|T3] = Union,
     not(member(H1,Set2)),
     isUnion(T1,Set2,T3).
     
 isIntersection([],_,[]).
 isIntersection(_,[],[]).
 
-isIntersection([H1|T1],Set2,[H1|T3]) :-
+isIntersection(Set1,Set2,Union) :-
+    [H1|T1] = Set1,
+    [H1|T3] = Union,
     member(H1,Set2),
     isIntersection(T1,Set2,T3).
     
-isIntersection([H1|T1],Set2,Intersection) :-
+isIntersection(Set1,Set2,Intersection) :-
+    [H1|T1] = Set1,
     not(member(H1,Set2)),
     isIntersection(T1,Set2,Intersection).
 
